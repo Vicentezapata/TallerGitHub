@@ -1,0 +1,42 @@
+name: SonarCloud Analysis
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  sonarcloud:
+    name: Run SonarCloud Analysis
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Java (required for SonarCloud)
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+
+      # Cache SonarCloud dependencies
+      - name: Cache SonarCloud dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: |
+            ${{ runner.os }}-sonar
+
+      # Run SonarCloud analysis
+      - name: Run SonarCloud
+        env:
+          SONAR_TOKEN: eafe2a9f0891d6c8ca82db3d0b1c8ffda0468d79
+        run: |
+          sonar-scanner \
+            -Dsonar.projectKey=<your_project_key> \
+            -Dsonar.organization=<your_organization> \
+            -Dsonar.host.url=https://sonarcloud.io
