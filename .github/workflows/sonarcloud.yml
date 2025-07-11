@@ -38,6 +38,6 @@ jobs:
           SONAR_TOKEN: eafe2a9f0891d6c8ca82db3d0b1c8ffda0468d79
         run: |
           sonar-scanner \
-            -Dsonar.projectKey=<your_project_key> \
-            -Dsonar.organization=<your_organization> \
+            -Dsonar.projectKey=Vicentezapata_TallerGitHub \
+            -Dsonar.organization=vzapata \
             -Dsonar.host.url=https://sonarcloud.io
