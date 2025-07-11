@@ -1,0 +1,49 @@
+:root {
+    --github-black: #24292e; /* Color negro corporativo de GitHub */
+    --github-blue: #0366d6; /* Azul corporativo de GitHub */
+    --github-gray: #f6f8fa; /* Gris claro corporativo de GitHub */
+    --github-green: #28a745; /* Verde corporativo de GitHub */
+    --github-red: #d73a49; /* Rojo corporativo de GitHub */
+}
+
+body {
+    background-color: var(--github-gray); /* Fondo gris claro */
+}
+
+.navbar {
+    background-color: var(--github-black); /* Fondo negro para la barra de navegación */
+}
+
+.navbar-brand, .nav-link {
+    color: var(--github-gray) !important; /* Texto gris claro */
+}
+
+.bg-primary {
+    background-color: var(--github-blue) !important; /* Fondo azul */
+}
+
+.bg-secondary {
+    background-color: var(--github-blue) !important; /* Fondo azul */
+}
+
+.bg-success {
+    background-color: var(--github-green) !important; /* Fondo verde */
+}
+
+.bg-warning {
+    background-color: var(--github-blue) !important; /* Fondo azul */
+}
+
+.bg-info {
+    background-color: var(--github-blue) !important; /* Fondo azul */
+}
+
+.btn-primary, .btn-secondary, .btn-success, .btn-warning, .btn-info {
+    background-color: var(--github-green) !important; /* Botón verde */
+    border-color: var(--github-green) !important;
+}
+
+footer {
+    background-color: var(--github-black); /* Fondo negro para el pie de página */
+    color: var(--github-gray); /* Texto gris claro */
+}
