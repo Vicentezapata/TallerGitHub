@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!-- Define el tipo de documento como HTML5 -->
+<html lang="es">
+<!-- Define el idioma del contenido como español -->
+<head>
+    <!-- Configura la codificación de caracteres como UTF-8 para soportar caracteres especiales -->
+    <meta charset="UTF-8">
+    <!-- Configura la vista para dispositivos móviles y asegura que la página sea responsiva -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define el título de la página que aparecerá en la pestaña del navegador -->
+    <title>Módulo 4: Automatización</title>
+    <!-- Incluye el archivo CSS de Bootstrap desde un CDN para estilos predefinidos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Incluye el archivo CSS personalizado -->
+    <link href="../styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Barra de navegación superior -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <!-- Logo o nombre del sitio -->
+            <a class="navbar-brand" href="#">Taller GitHub</a>
+            <!-- Botón para mostrar/ocultar el menú en dispositivos pequeños -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Menú de navegación -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <!-- Enlace al inicio -->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+                    </li>
+                    <!-- Menú desplegable para módulos -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="modulosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Módulos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="modulosDropdown">
+                            <li><a class="dropdown-item" href="modulo1.html">Módulo 1: Introducción</a></li>
+                            <li><a class="dropdown-item" href="modulo2.html">Módulo 2: Control de versiones</a></li>
+                            <li><a class="dropdown-item" href="modulo3.html">Módulo 3: Colaboración</a></li>
+                            <li><a class="dropdown-item" href="modulo4.html">Módulo 4: Automatización</a></li>
+                        </ul>
+                    </li>
+                    <!-- Enlace a recursos -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Recursos</a>
+                    </li>
+                    <!-- Enlace al formulario de contacto -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Encabezado principal con fondo azul y texto blanco -->
+    <header class="bg-warning text-white text-center py-5">
+        <div class="container">
+            <!-- Título principal -->
+            <h1>Módulo 4: Automatización con GitHub Actions</h1>
+            <!-- Descripción breve -->
+            <p>Automatiza tareas repetitivas en tus proyectos.</p>
+        </div>
+    </header>
+    <!-- Contenido principal de la página -->
+    <main class="container my-5">
+        <!-- Sección que explica qué es GitHub Actions -->
+        <section>
+            <h2>¿Qué aprenderás?</h2>
+            <p>En este módulo, aprenderás a usar GitHub Actions para automatizar tareas.</p>
+        </section>
+        <!-- Sección que lista los recursos disponibles -->
+        <section class="mt-4">
+            <h2>Recursos</h2>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Introducción a GitHub Actions</h5>
+                    <p class="card-text">Automatiza pruebas, despliegues y más.</p>
+                    <a href="#" class="btn btn-warning">Leer más</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Pie de página -->
+    <footer class="text-center py-3">
+        <!-- Texto del pie de página -->
+        <p>&copy; 2023 Taller GitHub. Todos los derechos reservados.</p>
+    </footer>
+    <!-- Incluye el archivo JavaScript de Bootstrap desde un CDN para funcionalidades interactivas -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

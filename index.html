@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!-- Define el tipo de documento como HTML5 -->
+<html lang="es">
+<!-- Define el idioma del contenido como español -->
+<head>
+    <!-- Configura la codificación de caracteres como UTF-8 para soportar caracteres especiales -->
+    <meta charset="UTF-8">
+    <!-- Configura la vista para dispositivos móviles y asegura que la página sea responsiva -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define el título de la página que aparecerá en la pestaña del navegador -->
+    <title>Taller GitHub</title>
+    <!-- Incluye el archivo CSS de Bootstrap desde un CDN para estilos predefinidos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Incluye el archivo CSS personalizado -->
+    <link href="styles.css" rel="stylesheet">
+    <!-- Incluye la librería SweetAlert2 desde un CDN para mostrar alertas estilizadas -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <!-- Barra de navegación superior -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <!-- Logo o nombre del sitio -->
+            <a class="navbar-brand" href="#">Taller GitHub</a>
+            <!-- Botón para mostrar/ocultar el menú en dispositivos pequeños -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Menú de navegación -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <!-- Enlace al inicio -->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                    </li>
+                    <!-- Menú desplegable para módulos -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="modulosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Módulos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="modulosDropdown">
+                            <li><a class="dropdown-item" href="paginas/modulo1.html">Módulo 1: Introducción</a></li>
+                            <li><a class="dropdown-item" href="paginas/modulo2.html">Módulo 2: Control de versiones</a></li>
+                            <li><a class="dropdown-item" href="paginas/modulo3.html">Módulo 3: Colaboración</a></li>
+                            <li><a class="dropdown-item" href="paginas/modulo4.html">Módulo 4: Automatización</a></li>
+                        </ul>
+                    </li>
+                    <!-- Enlace a recursos -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Recursos</a>
+                    </li>
+                    <!-- Enlace al formulario de contacto -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="paginas/contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Encabezado principal con fondo azul y texto blanco -->
+    <header class="bg-primary text-white text-center py-5">
+        <div class="container">
+            <!-- Título principal -->
+            <h1>Bienvenido al Taller GitHub</h1>
+            <!-- Descripción breve -->
+            <p>Aprende los conceptos básicos de GitHub de manera fácil y rápida.</p>
+        </div>
+    </header>
+    <!-- Contenido principal de la página -->
+    <main class="container my-5">
+        <!-- Sección que explica qué es GitHub -->
+        <section>
+            <h2>¿Qué es GitHub?</h2>
+            <p>GitHub es una plataforma para el control de versiones y la colaboración en proyectos de software.</p>
+        </section>
+        <!-- Sección que lista los recursos disponibles -->
+        <section class="mt-4">
+            <h2>Recursos disponibles</h2>
+            <ul>
+                <!-- Lista de recursos -->
+                <li>Guías paso a paso.</li>
+                <li>Ejercicios prácticos.</li>
+                <li>Videos tutoriales.</li>
+            </ul>
+        </section>
+    </main>
+    <!-- Formulario de contacto -->
+    <section class="container my-5">
+        <h2>Formulario de contacto</h2>
+        <form id="contactForm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="surname" class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="surname" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="message" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </section>
+    <!-- Pie de página -->
+    <footer class="text-center py-3">
+        <!-- Texto del pie de página -->
+        <p>&copy; 2023 Taller GitHub. Todos los derechos reservados.</p>
+    </footer>
+    <!-- Incluye el archivo JavaScript de Bootstrap desde un CDN para funcionalidades interactivas -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío del formulario por defecto
+
+            // Validación de los campos
+            const name = document.getElementById('name').value.trim();
+            const surname = document.getElementById('surname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (name && surname && email && message) {
+                // Si todos los campos están completos, muestra el mensaje con SweetAlert
+                Swal.fire({
+                    title: 'Formulario enviado',
+                    text: 'Gracias por contactarnos. Nos pondremos en contacto contigo pronto.',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                });
+                // Limpia el formulario
+                document.getElementById('contactForm').reset();
+            } else {
+                // Si algún campo está vacío, muestra un mensaje de error
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Por favor, completa todos los campos antes de enviar.',
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                });
+            }
+        });
+    </script>
+</body>
+</html>
