@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - cambio-titulo-a
 
 jobs:
   sonarcloud:
