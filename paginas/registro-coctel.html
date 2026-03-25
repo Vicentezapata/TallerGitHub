@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<!-- Define el tipo de documento como HTML5 -->
+<html lang="es">
+<!-- Define el idioma del contenido como español -->
+<head>
+    <!-- Configura la codificación de caracteres como UTF-8 para soportar caracteres especiales -->
+    <meta charset="UTF-8">
+    <!-- Configura la vista para dispositivos móviles y asegura que la página sea responsiva -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define el título de la página que aparecerá en la pestaña del navegador -->
+    <title>Registro de Cóctel</title>
+    <!-- Incluye el archivo CSS de Bootstrap desde un CDN para estilos predefinidos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Incluye el archivo CSS personalizado -->
+    <link href="../styles.css" rel="stylesheet">
+    <!-- Incluye la librería SweetAlert2 desde un CDN para mostrar alertas estilizadas -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .coctel-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+        .coctel-card .badge {
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación superior -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <!-- Logo o nombre del sitio -->
+            <a class="navbar-brand" href="../index.html">Taller GitHub</a>
+            <!-- Botón para mostrar/ocultar el menú en dispositivos pequeños -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Menú de navegación -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <!-- Enlace al inicio -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Inicio</a>
+                    </li>
+                    <!-- Menú desplegable para módulos -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="modulosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Módulos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="modulosDropdown">
+                            <li><a class="dropdown-item" href="modulo1.html">Módulo 1: Introducción</a></li>
+                            <li><a class="dropdown-item" href="modulo2.html">Módulo 2: Control de versiones</a></li>
+                            <li><a class="dropdown-item" href="modulo3.html">Módulo 3: Colaboración</a></li>
+                            <li><a class="dropdown-item" href="modulo4.html">Módulo 4: Automatización</a></li>
+                        </ul>
+                    </li>
+                    <!-- Enlace a recursos -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Recursos</a>
+                    </li>
+                    <!-- Enlace a cocteles (activo) -->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="registro-coctel.html">Cócteles</a>
+                    </li>
+                    <!-- Enlace al formulario de contacto -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Encabezado principal con fondo azul y texto blanco -->
+    <header class="bg-primary text-white text-center py-5">
+        <div class="container">
+            <!-- Título principal -->
+            <h1>Registro de Cócteles</h1>
+            <!-- Descripción breve -->
+            <p>Registra y visualiza cócteles fácilmente en la plataforma.</p>
+        </div>
+    </header>
+
+    <!-- Contenido principal de la página -->
+    <main class="container my-5">
+
+        <!-- Sección: Formulario de registro -->
+        <section class="mb-5">
+            <h2 class="mb-4">Registrar Cóctel</h2>
+            <form id="coctelForm" novalidate>
+                <!-- Nombre del coctel -->
+                <div class="mb-3">
+                    <label for="coctelNombre" class="form-label">Nombre del cóctel <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="coctelNombre" placeholder="Ej: Mojito" required>
+                </div>
+                <!-- Categoría -->
+                <div class="mb-3">
+                    <label for="coctelCategoria" class="form-label">Categoría <span class="text-danger">*</span></label>
+                    <select class="form-select" id="coctelCategoria" required>
+                        <option value="">Seleccione una categoría</option>
+                        <option value="Clásico">Clásico</option>
+                        <option value="Tropical">Tropical</option>
+                        <option value="Sin alcohol">Sin alcohol</option>
+                        <option value="Cremoso">Cremoso</option>
+                        <option value="Refrescante">Refrescante</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+                <!-- Ingredientes -->
+                <div class="mb-3">
+                    <label for="coctelIngredientes" class="form-label">Ingredientes <span class="text-danger">*</span></label>
+                    <textarea class="form-control" id="coctelIngredientes" rows="3" placeholder="Ej: Ron blanco, menta, azúcar, jugo de limón, agua con gas" required></textarea>
+                    <div class="form-text">Separa los ingredientes con comas.</div>
+                </div>
+                <!-- Descripción -->
+                <div class="mb-3">
+                    <label for="coctelDescripcion" class="form-label">Descripción <span class="text-danger">*</span></label>
+                    <textarea class="form-control" id="coctelDescripcion" rows="3" placeholder="Describe brevemente el cóctel y su preparación" required></textarea>
+                </div>
+                <!-- URL de imagen (opcional) -->
+                <div class="mb-3">
+                    <label for="coctelImagen" class="form-label">URL de imagen (opcional)</label>
+                    <input type="url" class="form-control" id="coctelImagen" placeholder="https://ejemplo.com/imagen.jpg">
+                    <div class="form-text">Si no se proporciona, se usará una imagen por defecto.</div>
+                </div>
+                <!-- Botones -->
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">Registrar Cóctel</button>
+                    <button type="button" class="btn btn-outline-secondary" id="limpiarFormBtn">Limpiar</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Sección: Lista de cocteles registrados -->
+        <section>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Cócteles Registrados</h2>
+                <button class="btn btn-outline-danger btn-sm" id="limpiarTodosBtn">Eliminar todos</button>
+            </div>
+            <!-- Contenedor donde se renderizan las tarjetas de cocteles -->
+            <div class="row g-4" id="coctelList">
+                <!-- Las tarjetas de cocteles se insertan dinámicamente aquí -->
+            </div>
+            <!-- Mensaje cuando no hay cocteles registrados -->
+            <div id="coctelVacio" class="text-center text-muted py-5" style="display:none;">
+                <p class="fs-5">No hay cócteles registrados aún. ¡Sé el primero en registrar uno!</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="text-center py-3">
+        <!-- Texto del pie de página -->
+        <p>&copy; 2023 Taller GitHub. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Incluye el archivo JavaScript de Bootstrap desde un CDN para funcionalidades interactivas -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const STORAGE_KEY = 'cocteles';
+        const DEFAULT_IMG = 'https://via.placeholder.com/400x200?text=Coctel';
+
+        // Carga los cocteles desde localStorage
+        function cargarCocteles() {
+            const data = localStorage.getItem(STORAGE_KEY);
+            return data ? JSON.parse(data) : [];
+        }
+
+        // Guarda los cocteles en localStorage
+        function guardarCocteles(cocteles) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(cocteles));
+        }
+
+        // Crea el nodo DOM de una tarjeta de coctel (sin innerHTML con datos del usuario)
+        function crearTarjeta(coctel, index) {
+            const col = document.createElement('div');
+            col.className = 'col-md-6 col-lg-4';
+
+            const card = document.createElement('div');
+            card.className = 'card h-100 coctel-card shadow-sm';
+
+            // Imagen
+            const img = document.createElement('img');
+            img.className = 'card-img-top';
+            img.alt = 'Imagen de ' + coctel.nombre;
+            img.src = coctel.imagen || DEFAULT_IMG;
+            img.addEventListener('error', function () { this.src = DEFAULT_IMG; });
+
+            // Cuerpo de la tarjeta
+            const cardBody = document.createElement('div');
+            cardBody.className = 'card-body';
+
+            const header = document.createElement('div');
+            header.className = 'd-flex justify-content-between align-items-start mb-2';
+
+            const titulo = document.createElement('h5');
+            titulo.className = 'card-title mb-0';
+            titulo.textContent = coctel.nombre;
+
+            const categoria = document.createElement('span');
+            categoria.className = 'badge bg-primary ms-2';
+            categoria.textContent = coctel.categoria;
+
+            header.appendChild(titulo);
+            header.appendChild(categoria);
+
+            const descripcion = document.createElement('p');
+            descripcion.className = 'card-text text-muted small';
+            descripcion.textContent = coctel.descripcion;
+
+            const ingredientesDiv = document.createElement('div');
+            ingredientesDiv.className = 'mt-2';
+
+            const ingLabel = document.createElement('strong');
+            ingLabel.className = 'small';
+            ingLabel.textContent = 'Ingredientes:';
+            ingredientesDiv.appendChild(ingLabel);
+            ingredientesDiv.appendChild(document.createElement('br'));
+
+            coctel.ingredientes.split(',').forEach(function (ingrediente) {
+                const badge = document.createElement('span');
+                badge.className = 'badge bg-success me-1 mb-1';
+                badge.textContent = ingrediente.trim();
+                ingredientesDiv.appendChild(badge);
+            });
+
+            cardBody.appendChild(header);
+            cardBody.appendChild(descripcion);
+            cardBody.appendChild(ingredientesDiv);
+
+            // Pie de tarjeta con botón eliminar
+            const cardFooter = document.createElement('div');
+            cardFooter.className = 'card-footer d-flex justify-content-end';
+
+            const btnEliminar = document.createElement('button');
+            btnEliminar.className = 'btn btn-outline-danger btn-sm';
+            btnEliminar.textContent = 'Eliminar';
+            btnEliminar.dataset.index = index;
+            btnEliminar.addEventListener('click', function () {
+                eliminarCoctel(parseInt(this.dataset.index, 10));
+            });
+
+            cardFooter.appendChild(btnEliminar);
+            card.appendChild(img);
+            card.appendChild(cardBody);
+            card.appendChild(cardFooter);
+            col.appendChild(card);
+            return col;
+        }
+
+        // Renderiza la lista de cocteles en el DOM
+        function renderizarCocteles() {
+            const cocteles = cargarCocteles();
+            const lista = document.getElementById('coctelList');
+            const vacio = document.getElementById('coctelVacio');
+
+            lista.innerHTML = '';
+            if (cocteles.length === 0) {
+                vacio.style.display = 'block';
+            } else {
+                vacio.style.display = 'none';
+                cocteles.forEach(function (c, i) {
+                    lista.appendChild(crearTarjeta(c, i));
+                });
+            }
+        }
+
+        // Elimina un coctel por su índice
+        function eliminarCoctel(index) {
+            Swal.fire({
+                title: '¿Eliminar cóctel?',
+                text: 'Esta acción no se puede deshacer.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, eliminar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const cocteles = cargarCocteles();
+                    cocteles.splice(index, 1);
+                    guardarCocteles(cocteles);
+                    renderizarCocteles();
+                    Swal.fire({
+                        title: 'Eliminado',
+                        text: 'El cóctel ha sido eliminado.',
+                        icon: 'success',
+                        confirmButtonText: 'Aceptar'
+                    });
+                }
+            });
+        }
+
+        // Maneja el envío del formulario de registro
+        document.getElementById('coctelForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const nombre = document.getElementById('coctelNombre').value.trim();
+            const categoria = document.getElementById('coctelCategoria').value;
+            const ingredientes = document.getElementById('coctelIngredientes').value.trim();
+            const descripcion = document.getElementById('coctelDescripcion').value.trim();
+            const imagen = document.getElementById('coctelImagen').value.trim();
+
+            if (!nombre || !categoria || !ingredientes || !descripcion) {
+                Swal.fire({
+                    title: 'Campos obligatorios',
+                    text: 'Por favor, completa todos los campos obligatorios antes de registrar el cóctel.',
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                });
+                return;
+            }
+
+            const nuevoCoctel = { nombre, categoria, ingredientes, descripcion, imagen };
+            const cocteles = cargarCocteles();
+            cocteles.push(nuevoCoctel);
+            guardarCocteles(cocteles);
+            renderizarCocteles();
+
+            Swal.fire({
+                title: '¡Cóctel registrado!',
+                text: `El cóctel "${nombre}" ha sido registrado correctamente.`,
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            });
+
+            document.getElementById('coctelForm').reset();
+        });
+
+        // Limpia el formulario
+        document.getElementById('limpiarFormBtn').addEventListener('click', function() {
+            document.getElementById('coctelForm').reset();
+        });
+
+        // Elimina todos los cocteles
+        document.getElementById('limpiarTodosBtn').addEventListener('click', function() {
+            const cocteles = cargarCocteles();
+            if (cocteles.length === 0) {
+                Swal.fire({
+                    title: 'Sin cócteles',
+                    text: 'No hay cócteles registrados para eliminar.',
+                    icon: 'info',
+                    confirmButtonText: 'Aceptar'
+                });
+                return;
+            }
+            Swal.fire({
+                title: '¿Eliminar todos los cócteles?',
+                text: 'Esta acción no se puede deshacer.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, eliminar todos',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    guardarCocteles([]);
+                    renderizarCocteles();
+                    Swal.fire({
+                        title: 'Eliminados',
+                        text: 'Todos los cócteles han sido eliminados.',
+                        icon: 'success',
+                        confirmButtonText: 'Aceptar'
+                    });
+                }
+            });
+        });
+
+        // Inicializa la vista al cargar la página
+        renderizarCocteles();
+    </script>
+</body>
+</html>
